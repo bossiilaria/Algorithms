@@ -1,0 +1,19 @@
+ function getPrimes(max) {
+    var sieve = [];
+    var i;
+    var j;
+    var primes = [];
+    for (i = 2; i <= max; ++i) {
+      if (!sieve[i]) {
+        // i has not been marked -- it is prime
+        primes.push(i);
+        for (j = i << 1; j <= max; j += i) {
+          sieve[j] = true;
+        }
+      }
+    }
+
+    var sum = sieve.reduce((a, b) => a + b, 0);
+    return sum; // 6
+  }
+  getPrimes(30);
