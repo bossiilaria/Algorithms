@@ -1,0 +1,29 @@
+
+function convertHTML(str) {
+let myChar = str.split('');
+  for(let i = 0; i < myChar.length; i++)
+  {
+	  	switch(myChar[i])
+	  {
+	  	case '<':
+	  	myChar[i] = '&lt;';
+	  	break;
+	  	case '&':
+	  	myChar[i] = '&amp;';
+	  	break;
+	  	case '>':
+	  	myChar[i] = '&gt;';
+	  	break;
+	  	case '"':
+        myChar[i] = '&quot;';
+        break;
+      	case "'":
+        myChar[i] = "&apos;";
+        break;
+	  }
+  }
+  myChar = myChar.join("");
+  return myChar;
+}
+
+convertHTML("Hamburgers < Pizza < Tacos");
