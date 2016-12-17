@@ -1,0 +1,14 @@
+
+function findElement(arr, func) {
+  //Give a name to the truth test function so you can pass it as an argument to the filter 
+  //method
+  function isDivisibleBy2(num)
+  {
+    return num % 2 === 0;
+  }
+  var filtered = arr.filter(isDivisibleBy2); //Find the array with only the numbers that pass the truth test. In our case [2, 4]
+  
+  return filtered[0]; //Return the first element. In our case 2
+}
+
+findElement([1, 2, 3, 4], function(num){ return num % 2 === 0; });
