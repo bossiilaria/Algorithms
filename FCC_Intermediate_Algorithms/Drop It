@@ -1,0 +1,24 @@
+/*
+Drop the elements of an array (first argument), starting from the front, until the predicate (second argument) returns true.
+
+The second argument, func, is a function you'll use to test the first elements of the array to decide if you should drop it or not.
+
+Return the rest of the array, otherwise return an empty array.
+*/
+
+function dropElements(arr, func) {
+  /*For some reason that I don't fully understand you must set the number of iterations equal to a variable var iteration = arr.length*/  
+var iterations = arr.length; //In the example below, iterations = 3
+ /*First iteration. i = 0. arr[0] is 1. func(1) is true. Break. Nothing happens and output is [1, 2, 3]. Second iteration. i = 1. arr[0] is 1. func(1) is true. Break. Nothing happens and output is [1, 2, 3]. Third iteration. i = 2. arr[0] is 1. func(1) is true. Break. Nothing happens and output is [1, 2, 3].*/
+  for (var i = 0; i < iterations; i++) 
+  {
+    if (func(arr[0])) {
+      break;
+    } else {
+      arr.shift();
+    }
+  }
+  return arr;
+}
+
+dropElements([1, 2, 3], function(n) {return n < 3; });
