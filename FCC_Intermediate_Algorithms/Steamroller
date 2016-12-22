@@ -1,0 +1,40 @@
+
+function steamrollArray(arr)
+{
+  /*Starter reasoning:
+var newArr = [];
+   //console.log(newArr);
+   for(var i = 0; i < arr.length; i++)
+   {
+     if(Array.isArray(arr[i]))
+     {
+      newArr = newArr.concat(arr[i]);
+  
+     } else
+     {
+        newArr.push(arr[i]);
+     }
+   }
+return newArr;
+*/
+  /*The above partially flattens my array. The hard part is to flatten that nasty-nested [[4]]!
+ [1, 2, 3, [[4]]]). The crucial point is inside the concat. Instead of concatenating with just the arr[i] element I need to concat with the function itself: concat(steamrollArray(arr[i]).*/
+  
+  var newArr = [];
+   //console.log(newArr);
+   for(var i = 0; i < arr.length; i++)
+   {
+     if(Array.isArray(arr[i]))
+     {
+      newArr = newArr.concat(steamrollArray(arr[i]));
+  
+     } else
+     {
+        newArr.push(arr[i]);
+     }
+   }
+return newArr;
+}
+  
+
+steamrollArray([1, [2], [3, [[4]]]]);
